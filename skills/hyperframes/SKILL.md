@@ -29,6 +29,8 @@ Build what was asked: no voiceover or captions and no new aspect ratio unless th
 10. Asset paths are root-relative (`assets/...`), in sub-compositions too.
 11. Grades, grain, blur and vignettes on footage go through `npx hyperframes media-treatment` (`/media-use`), never CSS filters.
 12. A scene file puts its styles, markup and scripts inside `<template>` and styles its root as `#root`. Intended overflow or overlap: `data-layout-allow-overflow`, `data-layout-allow-overlap`.
+13. Every GSAP plugin beyond the core bundle is a separate file: `DrawSVGPlugin`, `SplitText`, `MorphSVG`, `ScrambleText` and the rest are absent from `gsap.min.js`, and their params are dropped without a finding. Load the plugin file before the timeline and `gsap.registerPlugin(...)` it — from 3.13.0 they are in the public package and free for commercial use (`references/runtimes.md`); on 3.12.5 they do not exist. Pinned at 3.13.0 or later (the floor; verified with 3.15.0) and vendored into `assets/`, this boots and renders in 0.8.223 with a clean `check`.
+14. Type and any coordinate you set in px sit on a flat layer, outside any `perspective` or `translateZ` parent: perspective scales a child by `p / (p − z)` about its `perspective-origin`, so a label at `top: 60` in a `+170px` layer is drawn at y = −19, above the frame, while the rest of the panel still looks placed (`references/runtimes.md`).
 
 ## Keep it editable
 
@@ -43,9 +45,11 @@ Studio edits the tags you write.
 ## Work loop
 
 - An existing project: `npx hyperframes timeline --json` shows what plays when; before any change, `npx hyperframes history --since mine --who <you>` shows what the person changed since your last turn: build on it (`/hyperframes-cli`).
-- A new film over ~15 s that tells something: its type's file (below), then `references/story.md`: three storylines that are three different films, in words only; the person picks unless they asked for the file or no stops. Then `SPEC.md` (`references/spec.md`): every adjective as a number, the defaults banned by name, the shots by frame.
-- After your last edit: `npx hyperframes check --json`; fix every error, weigh every warning. A film: `npx hyperframes snapshot --review` and `references/review.md`, ending in `REVIEW.md`. A small edit: snapshot what you changed (`--at`, `--range`, `--composition`) and look before you reply.
-- Render when the person approves the Studio preview, asks for the file or asks for no stops, after your check and review pass; otherwise stop at the preview and wait.
+- A new film over ~15 s that tells something: its type's file (below), then `references/story.md`: three storylines that are three different films, in words only; the person picks unless they asked for the file or no stops. Then `SPEC.md` (`references/spec.md`): every adjective as a number, the defaults banned by name, the shots by frame. A film with music or a beat: settle its rhythm first (`references/rhythm.md`: the route, the energy curve, the burst, the stop), because a film that is correct in every frame and flat over time fails review and passes `check`.
+- After your last edit: `npx hyperframes check --json`; fix every error, weigh every warning. A film: `npx hyperframes snapshot --review` and `references/review.md`, ending in `REVIEW.md`. Two judgments `check` cannot make and review must: the **information test** (a shot that only shows its own words is a slideshow, not a film — count the words-only shots) and **provenance** (every line on screen traces to `SPEC.md` or the brief; a line that does not is one you invented). Only eight objective problems block delivery; everything else is optional. A small edit: snapshot what you changed (`--at`, `--range`, `--composition`) and look before you reply.
+- A render: `node <this skill>/scripts/gate.mjs <file.mp4>` reads the delivered file and blocks an empty stretch, a blue-purple ground and a frozen picture, and reports motion, dead area and one-frame pops. Red exits 2. Run it before you call a render done; it measures what `check` and a contact sheet cannot (`references/review.md` "The gate").
+- A render's motion, in numbers: `npx hyperframes measure` is the built-in kinematics pass and needs nothing but the file. `measure events <mp4> --json` counts `flash` / `appear` / `disappear` / `cut` / `hold` with times and lengths — a one-frame flash, a line that appears and dies, a stretch where nothing changes. `measure curve <mp4> --start S --end S --roi x,y,w,h --json` follows one element frame by frame and returns its `from` / `to` / `start_s` / `duration_s` / `frames`, plus the closest GSAP `ease`, `overshoot_pct` and `anticipation_pct` — that is how you tell a linear slide from an eased arrival and how far it travels per frame. `measure energy <reference> <yours> --json` compares when two clips move. Use these when the question is *how* it moves (too fast, camera jerk, forgot the ease), which no reading of the source can answer reliably: a `fromTo` with numbers at both ends is the only tween whose per-frame speed is knowable from code, and in one audit that was 41 tweens out of 400+ across ten films.
+- Render when the person approves the Studio preview, asks for the file or asks for no stops, after your check, gate and review pass; otherwise stop at the preview and wait.
 
 ## The HyperFrames desktop app
 
@@ -69,6 +73,13 @@ Call it "the HyperFrames desktop app", never "Studio"; offer it as the better wa
 | A real place or map; a website, PR or script; kinetic type | `references/film.md` |
 | Captions; cards over a talking head | `references/captions.md`; `references/overlays.md` |
 | Motion: eases, titles, cuts, punch-ins, speed, holds | `references/motion.md` |
+| The film's rhythm: energy curve, density, where it stops and bursts | `references/rhythm.md` |
+| A named move or device, and what it says | `references/techniques.md` |
+| Which language a film speaks, and what each one says | `references/motion-languages.md` |
+| The look: presets, brand, medium, banned defaults | `references/look.md` |
+| An art history as the look; a style survey; a tribute | `references/art-styles.md` |
+| What kind of thing is being told, and what to settle before drawing | `references/content-modes.md` |
+| How each shot carries the idea: mechanism, evidence, numbers, a build | `references/explainer-grammars.md` |
 | Scenes, attributes, media, lint; GSAP, Lottie, 3D, canvas | `references/format.md`; `references/runtimes.md` |
 
 Decks: `/slideshow`. Remotion source: `/remotion-to-hyperframes`. Figma: `/figma`. Installing, refreshing or upgrading skills and the pinned CLI: `references/skill-lifecycle.md`.

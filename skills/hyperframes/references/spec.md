@@ -45,7 +45,7 @@ QA:      the frames to check, and what each must show
 - In a story film every shot moves the story: something happens that causes the next shot. Lines read as cause and effect ("so…", "which means…"), not slogans.
 - An information card (B-roll over a talking head, a data beat, a vertical explainer card) is different: its information is on screen within about 2.5 s, then it holds, so any paused frame reads as a finished poster.
 - Something new every 2-4 s across the film; a new layout every bar when there is music.
-- Text meant to be read: at least 28 px at 1080 (2.6% of the short side), held 0.5 s + 0.3 s a word. Too many words: cut words, never shrink type.
+- Text meant to be read: at least 28 px at 1080 (2.6% of the short side), held per the read floor (`story.md` §8). Too many words: cut words, never shrink type.
 
 ## BANNED by default
 

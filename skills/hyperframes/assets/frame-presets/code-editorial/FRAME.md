@@ -88,6 +88,28 @@ components:
   spike-mark:
     glyph: "✱ (U+2731), always {colors.coral}"
     description: "The brand mark. Fades + scales 0.92→1 on a single emphasis beat; never spins."
+provenance:
+  source_repository: "https://github.com/heygen-com/hyperframes"
+  source_distribution: "HyperFrames skill bundle"
+  source_version: "0.8.214"
+  local_baseline_commit: "f1b0a8446adc9c9a40e0ff851d5b93ef1524a263"
+  notes: "Present in the unmodified local v0.8.214 baseline. This metadata was added locally on 2026-11-01; it does not assert an upstream per-preset author."
+
+license:
+  spdx: "Apache-2.0"
+  attribution_required: true
+  redistribution_allowed: true
+  commercial_use: true
+  notes: "Preserve the Apache-2.0 license and applicable upstream notices when redistributing this preset or a derivative."
+
+assets_attribution:
+  - name: "Bundled fonts: Inter + EB Garamond + JetBrains Mono"
+    license: "SIL-OFL-1.1"
+    authors: "The Inter Project Authors; The EB Garamond Project Authors; The JetBrains Mono Project Authors"
+    files: "fonts/Inter-*.woff2, fonts/EBGaramond-*.woff2, fonts/JetBrainsMono-*.woff2"
+    notices: "fonts/OFL-inter.txt, fonts/OFL-eb-garamond.txt, fonts/OFL-jetbrains-mono.txt"
+    notes: "Each font's bundled OFL text is the authoritative notice; preserve it if redistributing the font files."
+
 ---
 
 # Code editorial — Frame (video / frame layer)

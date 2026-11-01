@@ -38,7 +38,7 @@ Two `extra` keys every film plan carries, so the build and the review check the 
 
 | Key     | Meaning                                                                                                                                                                                                                          |
 | ------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `reads` | what the viewer must understand in this frame, in order, each with its window: `the cursor finds the button (0.4-1.2s); "Export" lands (1.2-2.6s)`. Windows never overlap, and each is long enough for its words (`story.md` §6) |
+| `reads` | what the viewer must understand in this frame, in order, each with its window: `the cursor finds the button (0.4-1.2s); "Export" lands (1.2-2.6s)`. Windows never overlap, and each is long enough for its words (`story.md` §8) |
 | `sound` | the bed, the effects on visible actions, or silence: `bed enters strong; click on Export; whoosh on the cut`                                                                                                                     |
 
 ## Parsed manifest
@@ -105,3 +105,26 @@ The old way: prompt, wait, get something that misses. Establish the pain we remo
 - A frame with `status: outline` and no built `src` renders as an outline placeholder.
 - `built` is the middle rung: the frame's HTML exists and its **layout is confirmed** (a wireframe sketch or better) — motion not yet added. Nothing is drawn yet beyond the approved layout.
 - Multi-line `voiceover` values collapse to one line on save.
+
+## Optional content graph — `CONTENT_GRAPH.json`
+
+For a film with explanatory dependencies, competing claims, or a complex sequence, create an optional
+`CONTENT_GRAPH.json` beside `STORYBOARD.md` before the board. It records content nodes and relationships;
+it never replaces the Markdown board.
+
+```bash
+python3 scripts/content_graph.py validate --file CONTENT_GRAPH.json
+python3 scripts/content_graph.py order --file CONTENT_GRAPH.json
+```
+
+`dependency` edges are hard prerequisites. `sequence` edges break ties only when independent nodes are
+simultaneously ready. `contrast` edges do not alter order; they prompt a comparison layout. Fix errors before
+using the suggested order. Warnings are review prompts, not delivery blockers.
+
+Turn the suggested node order into ordinary `STORYBOARD.md` frames yourself, adding `scene`, `voiceover`,
+`reads`, `sound`, actual durations, and source paths. A graph node may become one frame, or several closely
+related nodes may become one frame. `STORYBOARD.md` and `boards/storyboard.html` remain the files the person
+reviews and existing tools understand.
+
+The exact format and validation semantics are in
+`docs/superpowers/specs/2026-11-01-content-graph-sidecar-design.md`.

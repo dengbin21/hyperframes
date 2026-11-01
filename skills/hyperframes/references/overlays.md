@@ -31,6 +31,9 @@ Picture-in-picture, 28 px from the edges (bottom-right: y = H − h − 28):
 
 ## Pitfalls
 
+- Phone and webcam footage is often HDR (HLG / PQ). For a talking-head package or any transparent overlay,
+  check first and convert it to SDR before you lay out type or glass, or the colours you approve in preview
+  will not be the colours you render.
 - Lower-third, overlay and picture-in-picture scenes need a transparent root, or they hide the speaker.
 - Glass over bright footage goes white on white: put a dark scrim behind it (about `rgba(0,0,0,.55)` fading out from the top, `.72` at the bottom) and a dark glass base such as `rgba(15,16,22,.78)` with `backdrop-filter: blur(22px)`.
 - More than 3 timed elements on one track warns `timeline_track_too_dense`: give each chapter its own sub-composition.

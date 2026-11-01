@@ -2,6 +2,10 @@
 
 What is specific to HyperFrames, or was measured on shipped films, when one video is made from a website, a script, a pull request, a music track, a real place or a short motion brief. The story comes first, from `story.md`; the shape of each kind of film is in `types/`. Motion craft is in `motion.md`, look in `look.md`, sound in `sound.md`, captions in `captions.md`.
 
+These are starting points with evidence, not a guarantee that every new film will behave the same way. If a
+new delivered film contradicts one, update the line with the new evidence; do not keep opposite rules side by
+side and call both true.
+
 ## Script and pacing
 
 - TTS reads about 2.2 words a second. Keep a scene to about 19 words (9 s); at most two scenes may reach 26 words (12 s). 30–90 s is about 155 words or fewer; a whole film about 400 at most.

@@ -2,6 +2,8 @@
 
 One idea the viewer understands by the end (`../story.md` §1). The spine is one concrete example worked through, start to finish, not a tour of facts. Usually 30–90 s.
 
+Before the storyboard, settle *what kind of thing* is being told — a phenomenon, a worked problem, a word, a concept, an allusion, a how-to, a piece of news — in `../content-modes.md`; that file also says what has to be verified before anything is drawn.
+
 ## Ground it first
 
 Start where the viewer already is: a person, a place or a situation they know, and a question they would ask about it ("why does the astronaut come home younger than her twin?"). The abstract device (a light clock, a graph, a field) enters inside that situation, as the thing that answers the question, and the film returns to the person at the end with the answer. A film that opens on the device alone is a diagram, not an explainer.
@@ -20,7 +22,7 @@ Most explainable lines are one of a few shapes, and each has its own picture: a 
 ## Words
 
 - Narrated: the voice is the clock (`../sound.md` §2). Reveal each part when the voice names it, across the back half of the scene; keep a scene to about 19 spoken words (`../film.md` "Script and pacing").
-- Not narrated: large lines carry it, up to about 10 words, each held 0.5 s + 0.3 s a word.
+- Not narrated: large lines carry it, up to about 10 words, each held per the read floor (`../../story.md` §8).
 - Labels sit on the part they name, with a leader line when needed, and appear with it. No legends, no bullet slides.
 
 ## Getting it right

@@ -6,7 +6,7 @@ Sound is half of how a film feels, and the viewer notices a silent one before an
 
 - **A film over about 15 s that tells something** (launch, explainer, recap, PR video) gets a music bed and sounds on its visible actions, unless the person asked for silence or it is made to play muted (a looping background, a feed that autoplays without sound: then the type and the pictures carry it alone).
 - **A voiceover** only when the request or the source calls for one (`SKILL.md`).
-- **Each storyline says its sound** in one line (`story.md` §2): the bed's feel and tempo, the one moment the music changes, which actions get effects, or silence and why.
+- **Each storyline says its sound** in one line (`story.md` §4): the bed's feel and tempo, the one moment the music changes, which actions get effects, or silence and why.
 - **Short pieces** (a title card, a sting under 10 s, captions or overlays on footage that has its own sound) follow the request and the footage.
 
 ## 2. The clock
@@ -20,6 +20,34 @@ Sound is half of how a film feels, and the viewer notices a silent one before an
 The person's own track first, as given. Else search the catalog (`/media-use`, `bgm`) with the film's feel and tempo, not its subject ("tense minimal pulse building to a bright drop, 120 bpm"), and read a few results before keeping one. Enter at the track's strongest bar, not a quiet intro; end on a bar line with a short fade under the end card.
 
 With no music source (no `heygen` sign-in and no local model), deliver silent and say so in one line with how to add one. Do not spend the run building an audio chain or writing music in code: nobody can hear whether it is good.
+
+### What world to look for
+
+Search by world and instrument, not by an adjective. These families read clearly, and each suits a
+kind of film:
+
+| World | Sounds like | Fits | Avoid for |
+| --- | --- | --- | --- |
+| pulse minimalism | Reich, Glass, a repeated figure that accumulates | AI that thinks, research, dev tools, precision | family, food, warmth |
+| minimal techno | Stripe, a server rack at night | infra, dev tools, security | calm wellness |
+| UK garage, 2-step | Jamie xx, Fred again.., shuffled drums | consumer, social, phone-first | enterprise, documentary |
+| drum and bass | speed made audible | games, sport, hype montages | calm, luxury |
+| funk, disco | Daft Punk, Vulfpeck | playful consumer, creative tools | serious B2B |
+| lo-fi hip-hop | the study stream | study, notes, privacy, calm SaaS | hype, hardware |
+| trap, half-time | the hype reel | games, sport, crypto | premium, delicate |
+| synthwave | the neon 80s | retro, nostalgic, gaming | health, finance |
+| cinematic orchestral | trailer | hardware, a big claim, a launch | a list, a changelog |
+| lyrical piano and strings | Hisaishi | warm, human, a story | fast UI |
+| jazz trio | La La Land | premium, craft, design tools | sports |
+| acoustic folk | handclaps and a strummed guitar | family, food, handmade | tech, AI |
+| chiptune | the 8-bit console | games, dev culture, playful | luxury |
+| ambient glass | the quiet ident | loop, logo, a landing-page hero | a 30 s narrative |
+| 国风 electronic | guzheng over a beat | Chinese culture, heritage | — |
+| amapiano | the log drum | social, dance, young consumer | enterprise |
+
+Most subjects sit in two rows at once — a dev tool for calm private work, an AI product for families. The world that fits both is usually right, and is rarely the obvious first pick of either row. Never reuse the last film's world unless the person asked for it.
+
+One more check before keeping a track: a bed whose energy curve is flat is the most common reason a well-cut film still feels dull, whatever its genre. A build, a stop and a drop in the track do more for a film than the genre does.
 
 ## 4. Effects
 

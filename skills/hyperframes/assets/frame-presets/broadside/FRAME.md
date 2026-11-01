@@ -88,6 +88,20 @@ components:
   fadelist:
     typography: "{typography.fadelist-item} ×3 at opacity 1.0/0.5/0.22 + {typography.fadelist-title}"
     description: "Three stacked words + one oversized title opposite."
+provenance:
+  source_repository: "https://github.com/heygen-com/hyperframes"
+  source_distribution: "HyperFrames skill bundle"
+  source_version: "0.8.214"
+  local_baseline_commit: "f1b0a8446adc9c9a40e0ff851d5b93ef1524a263"
+  notes: "Present in the unmodified local v0.8.214 baseline. This metadata was added locally on 2026-11-01; it does not assert an upstream per-preset author."
+
+license:
+  spdx: "Apache-2.0"
+  attribution_required: true
+  redistribution_allowed: true
+  commercial_use: true
+  notes: "Preserve the Apache-2.0 license and applicable upstream notices when redistributing this preset or a derivative."
+
 ---
 
 # Broadside — Frame (video / frame layer)

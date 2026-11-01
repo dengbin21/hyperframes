@@ -95,6 +95,8 @@ The detail behind the contract in `SKILL.md`. Full references: `npx hyperframes 
 
 - Bundled, so they resolve by name: Inter, Montserrat, Outfit, Nunito, Oswald, League Gothic, Archivo Black, Space Mono, IBM Plex Mono, JetBrains Mono, EB Garamond, Playfair Display, Source Code Pro, Noto Sans JP, Roboto, Open Sans, Lato, Poppins. Common system fonts (Helvetica, Arial, Times, Menlo and the like) are swapped for the nearest of these.
 - Any other family needs `@font-face` in the file that uses it, or lint fails `font_family_without_font_face`: `src: url('assets/fonts/x.woff2')` for a file in the project (a capture's own fonts, or one you download there), or `local('Exact Name')` for a font installed on this machine.
+- That is per file, not per page: a scene that uses a family declares its own `@font-face` even when `index.html` already declares the same one. Each scene file is read on its own, so a family declared only at the root reports `font_family_without_font_face` in every scene that names it — and a variable such as `--font-display` does not carry a family the file never declared. Install fonts in a generator that writes every scene (one LOOK block, injected), so the declaration cannot drift between scenes.
+- Keep the `--font-display` fallback chain to families that resolve: `"PingFang SC", "Songti SC", sans-serif`. An undeclared system name in the middle of the chain (a face that is not on the renderer) still trips the same finding, and the failure points at the last scene that used it.
 
 ## Timing and the timeline
 
